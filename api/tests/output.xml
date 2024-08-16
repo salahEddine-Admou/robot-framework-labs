@@ -1,69 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.0.1 (Python 3.12.4 on win32)" generated="2024-08-16T11:59:31.447768" rpa="false" schemaversion="5">
-<suite id="s1" name="Login-Test" source="C:\Users\salah\Downloads\automated-test\api\tests\login-test.robot">
-<test id="s1-t1" name="Verify User Login" line="10">
+<robot generator="Robot 7.0.1 (Python 3.12.4 on win32)" generated="2024-08-16T13:39:38.591660" rpa="false" schemaversion="5">
+<suite id="s1" name="Test-Linkedin" source="C:\Users\salah\Downloads\automated-test\api\tests\test-linkedin.robot">
+<test id="s1-t1" name="Post Job Search Request" line="12">
 <kw name="Create Headers">
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2024-08-16T11:59:31.984739" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
+<msg time="2024-08-16T13:39:39.365632" level="INFO">${headers} = {'x-rapidapi-key': '6fc4363381mshccc938c5300e831p1a2d4cjsnc09dc6d2a411', 'x-rapidapi-host': 'linkedin-jobs-scraper-api.p.rapidapi.com', 'Content-Type': 'application/json'}</msg>
 <var>${headers}</var>
+<arg>x-rapidapi-key=${API_KEY}</arg>
+<arg>x-rapidapi-host=${API_HOST}</arg>
 <arg>Content-Type=application/json</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2024-08-16T11:59:31.983740" elapsed="0.000999"/>
+<status status="PASS" start="2024-08-16T13:39:39.364632" elapsed="0.001000"/>
 </kw>
 <return>
 <value>${headers}</value>
-<status status="PASS" start="2024-08-16T11:59:31.984739" elapsed="0.000000"/>
+<status status="PASS" start="2024-08-16T13:39:39.365632" elapsed="0.000000"/>
 </return>
-<msg time="2024-08-16T11:59:31.985741" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
+<msg time="2024-08-16T13:39:39.366631" level="INFO">${headers} = {'x-rapidapi-key': '6fc4363381mshccc938c5300e831p1a2d4cjsnc09dc6d2a411', 'x-rapidapi-host': 'linkedin-jobs-scraper-api.p.rapidapi.com', 'Content-Type': 'application/json'}</msg>
 <var>${headers}</var>
-<status status="PASS" start="2024-08-16T11:59:31.983740" elapsed="0.002001"/>
+<status status="PASS" start="2024-08-16T13:39:39.363633" elapsed="0.002998"/>
 </kw>
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2024-08-16T11:59:31.986739" level="INFO">${data} = {'email': 'salah@gmail.com', 'password': '12345678'}</msg>
+<msg time="2024-08-16T13:39:39.367632" level="INFO">${data} = {'title': 'Software Engineer', 'location': 'Berlin', 'rows': '25'}</msg>
 <var>${data}</var>
-<arg>email=${EMAIL}</arg>
-<arg>password=${PASSWORD}</arg>
+<arg>title=Software Engineer</arg>
+<arg>location=Berlin</arg>
+<arg>rows=25</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2024-08-16T11:59:31.985741" elapsed="0.000998"/>
+<status status="PASS" start="2024-08-16T13:39:39.366631" elapsed="0.001001"/>
 </kw>
 <kw name="POST" owner="RequestsLibrary">
-<msg time="2024-08-16T11:59:32.331697" level="INFO">POST Request : url=https://automationexercise.com/api/verifyLogin 
- path_url=/api/verifyLogin 
- headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '52'} 
- body=b'{"email": "salah@gmail.com", "password": "12345678"}' 
+<msg time="2024-08-16T13:39:39.718464" level="INFO">POST Request : url=https://linkedin-jobs-scraper-api.p.rapidapi.com/jobs/trial 
+ path_url=/jobs/trial 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'x-rapidapi-key': '6fc4363381mshccc938c5300e831p1a2d4cjsnc09dc6d2a411', 'x-rapidapi-host': 'linkedin-jobs-scraper-api.p.rapidapi.com', 'Content-Type': 'application/json', 'Content-Length': '66'} 
+ body=b'{"title": "Software Engineer", "location": "Berlin", "rows": "25"}' 
  </msg>
-<msg time="2024-08-16T11:59:32.331697" level="INFO">POST Response : url=https://automationexercise.com/api/verifyLogin 
- status=200, reason=OK 
- headers={'Date': 'Fri, 16 Aug 2024 09:59:32 GMT', 'Content-Type': 'text/html; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'vary': 'Accept,Cookie,Accept-Encoding', 'referrer-policy': 'same-origin', 'x-frame-options': 'DENY', 'x-content-type-options': 'nosniff', 'allow': 'GET, OPTIONS, DELETE, POST, PUT', 'x-powered-by': 'Phusion Passenger(R) 6.0.22', 'status': '200 OK', 'CF-Cache-Status': 'DYNAMIC', 'Report-To': '{"endpoints":[{"url":"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=XLcFV5UIomXj4bLt%2Fj8UfGmxEf2InMEwZ1yD8N9cKkAV78cDZIGDa3PLv%2FWlJmeTrSuWWBR5huCQ1af11E99MaALBi32ui49z5CAwZpDESpi6ehKoN43i%2BmoNqP19ofXeJVmiC7eiBQz"}],"group":"cf-nel","max_age":604800}', 'NEL': '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}', 'Server': 'cloudflare', 'CF-RAY': '8b4092787adecbb8-MAD', 'Content-Encoding': 'gzip', 'alt-svc': 'h3=":443"; ma=86400'} 
- body={"responseCode": 400, "message": "Bad request, email or password parameter is missing in POST request."} 
+<msg time="2024-08-16T13:39:39.718464" level="INFO">POST Response : url=https://linkedin-jobs-scraper-api.p.rapidapi.com/jobs/trial 
+ status=400, reason=Bad Request 
+ headers={'Date': 'Fri, 16 Aug 2024 11:39:39 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '116', 'Connection': 'keep-alive', 'ETag': 'W/"74-7NKPlDpJvIXFsveP8GOFNY+hOhs"', 'Origin-Agent-Cluster': '?1', 'X-DNS-Prefetch-Control': 'off', 'Cross-Origin-Resource-Policy': 'same-origin', 'Content-Security-Policy': "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests", 'Cross-Origin-Opener-Policy': 'same-origin', 'X-Content-Type-Options': 'nosniff', 'Referrer-Policy': 'no-referrer', 'X-XSS-Protection': '0', 'Strict-Transport-Security': 'max-age=15552000; includeSubDomains', 'X-Download-Options': 'noopen', 'X-Frame-Options': 'SAMEORIGIN', 'X-Permitted-Cross-Domain-Policies': 'none', 'X-RateLimit-Requests-Limit': '25', 'X-RateLimit-Requests-Remaining': '21', 'X-RateLimit-Requests-Reset': '2678257', 'X-RateLimit-rapid-free-plans-hard-limit-Limit': '500000', 'X-RateLimit-rapid-free-plans-hard-limit-Remaining': '499996', 'X-RateLimit-rapid-free-plans-hard-limit-Reset': '2678257', 'Server': 'RapidAPI-1.2.8', 'X-RapidAPI-Version': '1.2.8', 'X-RapidAPI-Region': 'AWS - eu-west-1', 'X-RapidAPI-Request-Id': 'd00e96fd292b5deeacfeb13c09ee518a80c6b0e58da258cfb8653d0ba6c8fd34'} 
+ body={"message":["rows must be a number conforming to the specified constraints"],"error":"Bad Request","statusCode":400} 
  </msg>
-<msg time="2024-08-16T11:59:32.332741" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<msg time="2024-08-16T13:39:39.718464" level="FAIL">HTTPError: 400 Client Error: Bad Request for url: https://linkedin-jobs-scraper-api.p.rapidapi.com/jobs/trial</msg>
 <var>${response}</var>
 <arg>${BASE_URL}</arg>
 <arg>headers=${headers}</arg>
 <arg>json=${data}</arg>
 <doc>Sends a POST request.</doc>
-<status status="PASS" start="2024-08-16T11:59:31.986739" elapsed="0.346002"/>
+<status status="FAIL" start="2024-08-16T13:39:39.367632" elapsed="0.352780">HTTPError: 400 Client Error: Bad Request for url: https://linkedin-jobs-scraper-api.p.rapidapi.com/jobs/trial</status>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Response Status Code: ${response.status_code}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2024-08-16T13:39:39.721668" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Response Text: ${response.text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2024-08-16T13:39:39.722715" elapsed="0.000000"/>
 </kw>
 <kw name="Should Be Equal As Numbers" owner="BuiltIn">
-<msg time="2024-08-16T11:59:32.334686" level="INFO">Argument types are:
-&lt;class 'int'&gt;
-&lt;class 'str'&gt;</msg>
 <arg>${response.status_code}</arg>
 <arg>200</arg>
 <doc>Fails if objects are unequal after converting them to real numbers.</doc>
-<status status="PASS" start="2024-08-16T11:59:32.333682" elapsed="0.001004"/>
+<status status="NOT RUN" start="2024-08-16T13:39:39.722715" elapsed="0.000000"/>
 </kw>
-<kw name="Should Contain" owner="BuiltIn">
-<msg time="2024-08-16T11:59:32.336682" level="FAIL">'{"responseCode": 400, "message": "Bad request, email or password parameter is missing in POST request."}' does not contain 'User exists!'</msg>
-<arg>${response.text}</arg>
-<arg>User exists!</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="FAIL" start="2024-08-16T11:59:32.334686" elapsed="0.001996">'{"responseCode": 400, "message": "Bad request, email or password parameter is missing in POST request."}' does not contain 'User exists!'</status>
+<kw name="Log" owner="BuiltIn">
+<arg>${response.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2024-08-16T13:39:39.723723" elapsed="0.000000"/>
 </kw>
-<status status="FAIL" start="2024-08-16T11:59:31.982742" elapsed="0.354947">'{"responseCode": 400, "message": "Bad request, email or password parameter is missing in POST request."}' does not contain 'User exists!'</status>
+<status status="FAIL" start="2024-08-16T13:39:39.362632" elapsed="0.361091">HTTPError: 400 Client Error: Bad Request for url: https://linkedin-jobs-scraper-api.p.rapidapi.com/jobs/trial</status>
 </test>
-<status status="FAIL" start="2024-08-16T11:59:31.449767" elapsed="0.889916"/>
+<status status="FAIL" start="2024-08-16T13:39:38.593633" elapsed="1.133089"/>
 </suite>
 <statistics>
 <total>
@@ -72,7 +80,7 @@
 <tag>
 </tag>
 <suite>
-<stat pass="0" fail="1" skip="0" id="s1" name="Login-Test">Login-Test</stat>
+<stat pass="0" fail="1" skip="0" id="s1" name="Test-Linkedin">Test-Linkedin</stat>
 </suite>
 </statistics>
 <errors>
